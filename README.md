@@ -19,7 +19,7 @@ It's built for anyone who wants to get better at interviews, presentations, deba
 | Step | What happens |
 |------|-------------|
 | **01 — Spin** | Get a random topic from 6 categories across 3 difficulty tiers |
-| **02 — Think** | 30 seconds to structure your thoughts. No notes. No script. |
+| **02 — Think** | Take your time to structure your thoughts. No notes. No script. |
 | **03 — Speak** | Talk for 1–2 minutes under a live countdown timer |
 | **04 — Rate** | Score your own performance and get a targeted coach's tip |
 
