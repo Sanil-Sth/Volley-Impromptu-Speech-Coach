@@ -1,4 +1,4 @@
-# 🎙 Volley — Precision Under Pressure.
+# Volley — Precision Under Pressure.
 
 >Impromptu speech coaching for the moments you can't script.
 
