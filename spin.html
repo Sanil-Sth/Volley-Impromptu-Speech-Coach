@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Volley — Spin a Topic</title>
+  <meta name="description" content="Spin a random impromptu speaking topic. Filter by category and difficulty.">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/spin.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a class="nav-brand" href="index.html" aria-label="Volley home">
+      <!-- FIX #9: PNG logo -->
+      <img class="nav-logo-img" src="assets/logo.png" alt="Volley logo">
+      <span class="nav-wordmark">volley</span>
+    </a>
+    <span class="nav-tagline">Precision under pressure.</span>
+    <div class="nav-right">
+      <!-- FIX #12: Streak badge -->
+      <div class="nav-streak" id="navStreak" title="Your current practice streak">
+        <span class="nav-streak-icon">🔥</span>
+        <span class="nav-streak-count">0</span>
+        <span>day streak</span>
+      </div>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link active" href="spin.html">Practice</a>
+      <a class="nav-link" href="history.html">History</a>
+      <a class="nav-cta" href="timer.html">Timer →</a>
+    </div>
+  </nav>
+
+  <!-- TWO-PANEL LAYOUT -->
+  <div class="page-spin">
+
+    <!-- LEFT PANEL -->
+    <aside class="panel-left" aria-label="Instructions">
+
+      <!-- FIX #9: PNG logo — large version -->
+      <div class="brand-mark-wrap" aria-hidden="true">
+        <img class="brand-logo-img" src="assets/logo.png" alt="Volley">
+      </div>
+
+      <h1 class="brand-name">volley</h1>
+      <p class="brand-sub">Precision under pressure.</p>
+
+      <ol class="steps" aria-label="Practice steps">
+        <li class="step">
+          <div class="step-badge" aria-hidden="true">1</div>
+          <p class="step-label"><strong>Spin</strong> to get a random topic</p>
+        </li>
+        <li class="step">
+          <div class="step-badge" aria-hidden="true">2</div>
+          <p class="step-label"><strong>Think</strong> — Take time to prep</p>
+        </li>
+        <li class="step">
+          <div class="step-badge" aria-hidden="true">3</div>
+          <p class="step-label"><strong>Speak</strong> for 1–2 minutes, no script</p>
+        </li>
+      </ol>
+
+      <div class="panel-ecg" aria-hidden="true">
+        <svg class="ecg-line" viewBox="0 0 280 28" fill="none">
+          <polyline
+            points="0,14 28,14 35,14 41,4 47,24 53,1 59,18 65,14 90,14 97,8 103,14
+                    125,14 152,14 158,4 164,24 170,1 176,18 182,14 207,14 214,8
+                    220,14 242,14 248,4 254,24 260,1 266,18 272,14 280,14"
+            stroke="#C8F135" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </aside>
+
+    <!-- RIGHT PANEL -->
+    <main class="panel-right" aria-label="Topic spinner">
+
+      <!-- FIX #4 & #8: cat-badge sits ABOVE reel-outer, inside reel-block -->
+      <div class="reel-block">
+
+        <!-- Category badge — outside reel window, no collision -->
+        <div class="cat-badge" id="catBadge" aria-live="polite">🎯 ALL TOPICS</div>
+
+        <!-- Filter row — part of reel-block, tight spacing -->
+        <div class="filter-row" role="group" aria-label="Topic filters">
+
+          <!-- Category filter -->
+          <div class="fpill" id="catPill">
+            <button class="fpill-trigger" id="catTrigger"
+              aria-haspopup="listbox" aria-expanded="false" aria-label="Select category">
+              <span id="catIcon" aria-hidden="true">🎯</span>
+              <span id="catLabel">All Topics</span>
+              <span class="arrow" aria-hidden="true">▼</span>
+            </button>
+            <div class="fpill-menu" role="listbox" aria-label="Topic categories">
+              <button class="fpill-option active" role="option" data-val="all"    data-icon="🎯" data-label="All Topics">🎯 All Topics   <span class="tick" aria-hidden="true">✓</span></button>
+              <button class="fpill-option"        role="option" data-val="career" data-icon="💼" data-label="Career">💼 Career        <span class="tick" aria-hidden="true">✓</span></button>
+              <button class="fpill-option"        role="option" data-val="mindset"data-icon="🧠" data-label="Mindset">🧠 Mindset       <span class="tick" aria-hidden="true">✓</span></button>
+              <button class="fpill-option"        role="option" data-val="society"data-icon="🌍" data-label="Society">🌍 Society       <span class="tick" aria-hidden="true">✓</span></button>
+              <button class="fpill-option"        role="option" data-val="tech"   data-icon="⚡" data-label="Technology">⚡ Technology  <span class="tick" aria-hidden="true">✓</span></button>
+              <button class="fpill-option"        role="option" data-val="debate" data-icon="⚔️"  data-label="Debate This">⚔️ Debate This <span class="tick" aria-hidden="true">✓</span></button>
+              <button class="fpill-option"        role="option" data-val="story"  data-icon="✦"  data-label="Storytelling">✦ Storytelling <span class="tick" aria-hidden="true">✓</span></button>
+            </div>
+          </div>
+
+          <!-- Difficulty filter -->
+          <div class="fpill" id="diffPill">
+            <button class="fpill-trigger" id="diffTrigger"
+              aria-haspopup="listbox" aria-expanded="false" aria-label="Select difficulty">
+              <span id="diffIcon" aria-hidden="true">🎲</span>
+              <span id="diffLabel">Any Level</span>
+              <span class="arrow" aria-hidden="true">▼</span>
+            </button>
+            <div class="fpill-menu" role="listbox" aria-label="Difficulty levels">
+              <button class="fpill-option active" role="option" data-val="all"    data-icon="🎲" data-label="Any Level">🎲 Any Level    <span class="tick" aria-hidden="true">✓</span></button>
+              <button class="fpill-option"        role="option" data-val="easy"   data-icon="🟢" data-label="Warm-Up">🟢 Warm-Up      <span class="tick" aria-hidden="true">✓</span></button>
+              <button class="fpill-option"        role="option" data-val="medium" data-icon="🟡" data-label="Pressure">🟡 Pressure     <span class="tick" aria-hidden="true">✓</span></button>
+              <button class="fpill-option"        role="option" data-val="hard"   data-icon="🔴" data-label="High Stakes">🔴 High Stakes <span class="tick" aria-hidden="true">✓</span></button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Reel -->
+        <div class="reel-outer" role="region" aria-label="Topic reel">
+          <div class="reel-main">
+
+            <div class="reel-window" id="reelWindow" aria-live="polite" aria-atomic="true">
+              <!-- FIX #4: diff pips stay inside — safe zone below mask -->
+              <div class="diff-pips" id="diffPips" aria-hidden="true">
+                <div class="pip" id="pip1"></div>
+                <div class="pip" id="pip2"></div>
+                <div class="pip" id="pip3"></div>
+              </div>
+              <div class="reel-strip" id="reelStrip"></div>
+            </div>
+
+            <!-- FIX #6: Spin dominant, Timer secondary -->
+            <div class="spin-btn-row">
+              <button class="btn-spin" id="spinBtn" aria-label="Spin for a new topic">Spin</button>
+              <button class="btn-to-timer" id="toTimerBtn" aria-label="Go to timer">Start Timer →</button>
+            </div>
+
+            <p class="kbd-hint" aria-hidden="true">
+              <kbd class="kbd">SPACE</kbd> to spin &nbsp;·&nbsp; <kbd class="kbd">ENTER</kbd> to start timer
+            </p>
+          </div>
+
+          <!-- FIX #7: Clean scroll indicator — no artifact -->
+          <div class="scroll-indicator" aria-hidden="true">
+            <div class="scroll-track">
+              <div class="scroll-thumb-inner" id="scrollThumb"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /reel-block -->
+
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/topics.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/spin.js"></script>
+</body>
+</html>

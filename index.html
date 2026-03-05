@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Volley — Precision under pressure.</title>
+  <meta name="description" content="AI-powered speech coaching for the moments you can't script.">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body class="page-landing">
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a class="nav-brand" href="index.html" aria-label="Volley home">
+      <!-- FIX #9: PNG logo -->
+      <img class="nav-logo-img" src="assets/logo.png" alt="Volley logo">
+      <span class="nav-wordmark">volley</span>
+    </a>
+    <span class="nav-tagline">Precision under pressure.</span>
+    <div class="nav-right">
+      <!-- FIX #12: Streak badge -->
+      <div class="nav-streak" id="navStreak" title="Your current practice streak">
+        <span class="nav-streak-icon">🔥</span>
+        <span class="nav-streak-count">0</span>
+        <span>day streak</span>
+      </div>
+      <a class="nav-link" href="spin.html">Practice</a>
+      <a class="nav-link" href="history.html">History</a>
+      <a class="nav-cta" href="spin.html">Start Speaking</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="heroHeadline">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-logo-wrap" aria-hidden="true">
+        <img class="hero-logo-img" src="assets/logo.png" alt="">
+      </div>
+      <div class="hero-eyebrow" aria-hidden="true">
+        <span class="hero-eyebrow-dot"></span>
+        Impromptu speech practice
+      </div>
+      <h1 class="hero-headline" id="heroHeadline">
+        volley<span class="hero-headline-accent">.</span>
+      </h1>
+      <p class="hero-sub">
+        Speech coaching for the moments you can't script.
+        Spin a topic, start the timer — speak without a script.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="spin.html">Start Speaking</a>
+        <a class="btn btn-secondary btn-lg" href="#how" data-scroll-to="how">How it works</a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true" id="scrollHint" style="cursor:pointer;">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how" aria-labelledby="howTitle">
+    <div class="reveal">
+      <span class="section-label">How it works</span>
+      <h2 class="section-title" id="howTitle">three steps.<br>no preparation.</h2>
+      <p class="section-desc">The entire practice loop in under three minutes.</p>
+    </div>
+    <div class="steps-grid stagger-parent reveal">
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-card-num">01</div>
+        <span class="step-card-icon" aria-hidden="true">🎲</span>
+        <h3 class="step-card-title">spin</h3>
+        <p class="step-card-body">Get a random topic from six categories across three difficulty tiers. Every spin surprises you.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-card-num">02</div>
+        <span class="step-card-icon" aria-hidden="true">⏱</span>
+        <h3 class="step-card-title">think</h3>
+        <p class="step-card-body">Take time to structure your thoughts. No notes. No script. The constraint is what trains you.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-card-num">03</div>
+        <span class="step-card-icon" aria-hidden="true">🎙</span>
+        <h3 class="step-card-title">speak</h3>
+        <p class="step-card-body">Talk for 1–2 minutes, coherently, under pressure. Rate yourself and get a coach's tip after.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE DEMO -->
+  <div class="demo-section" id="demo">
+    <div class="demo-inner">
+      <div class="reveal">
+        <span class="section-label">Live preview</span>
+        <h2 class="section-title">topics that challenge you.</h2>
+        <p class="section-desc">Original, pressure-tested topics. Rotating every few seconds.</p>
+      </div>
+      <div class="demo-card reveal">
+        <p class="demo-topic fade-in" id="demoTopic" aria-live="polite">Loading topic…</p>
+        <div class="demo-meta">
+          <span class="demo-pill" id="demoCatBadge">🎯 ALL TOPICS</span>
+          <span class="demo-pill" id="demoDiffBadge">🎲 Any Level</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY VOLLEY -->
+  <div class="features-section" id="why">
+    <div class="features-inner">
+      <div class="reveal">
+        <span class="section-label">Why Volley</span>
+        <h2 class="section-title">more than a timer.</h2>
+        <p class="section-desc">Most tools give you a topic. Volley gives you conditions.</p>
+      </div>
+      <div class="features-grid stagger-parent">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon" aria-hidden="true">🎯</div>
+          <h3 class="feature-title">original topics</h3>
+          <p class="feature-body">Six categories. Three difficulty tiers. Topics written for pressure — not comfort.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon" aria-hidden="true">⚡</div>
+          <h3 class="feature-title">built for speed</h3>
+          <p class="feature-body">Zero login. Zero setup. Spin, think, speak. The loop runs in under three minutes.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon" aria-hidden="true">🏋️</div>
+          <h3 class="feature-title">game conditions</h3>
+          <p class="feature-body">Real constraints every rep. Rate your performance and get a targeted coach's tip after each session.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-4">
+          <div class="feature-icon" aria-hidden="true">🔥</div>
+          <h3 class="feature-title">streak tracking</h3>
+          <p class="feature-body">Build a daily practice habit. Your streak resets if you miss a day — the pressure is real.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <h2 class="cta-banner-title reveal">ready to speak<br>under pressure?</h2>
+    <p class="cta-banner-sub reveal">No login. No setup. Your first topic is one spin away.</p>
+    <div class="reveal">
+      <a class="btn btn-primary btn-lg" href="spin.html">Start Spinning</a>
+    </div>
+  </div>
+
+  <!-- HISTORY SECTION -->
+  <div class="history-section" id="history">
+    <div class="history-inner">
+
+      <!-- Header -->
+      <div class="hist-header">
+        <div>
+          <span class="section-label">Your sessions</span>
+          <h2 class="section-title">practice history.</h2>
+        </div>
+        <button class="btn btn-ghost btn-sm hist-clear-btn" id="histClearBtn" aria-label="Clear all history">
+          Clear history
+        </button>
+      </div>
+
+      <!-- Stats bar (hidden until data exists) -->
+      <div class="hist-stats" id="histStats">
+        <div class="hist-stat">
+          <span class="hist-stat-val" id="hsSessions">0</span>
+          <span class="hist-stat-lbl">sessions</span>
+        </div>
+        <div class="hist-stat-div"></div>
+        <div class="hist-stat">
+          <span class="hist-stat-val" id="hsAvg">—</span>
+          <span class="hist-stat-lbl">avg rating</span>
+        </div>
+        <div class="hist-stat-div"></div>
+        <div class="hist-stat">
+          <span class="hist-stat-val" id="hsStreak">0</span>
+          <span class="hist-stat-lbl">day streak</span>
+        </div>
+        <div class="hist-stat-div"></div>
+        <div class="hist-stat">
+          <span class="hist-stat-val" id="hsTime">0m</span>
+          <span class="hist-stat-lbl">total time</span>
+        </div>
+      </div>
+
+      <!-- Empty state -->
+      <div class="hist-empty" id="histEmpty">
+        <span class="hist-empty-icon" aria-hidden="true">🎙</span>
+        <p class="hist-empty-title">no sessions yet.</p>
+        <p class="hist-empty-sub">Complete a practice session and it'll appear here.</p>
+        <a class="btn btn-primary btn-md" href="spin.html" style="margin-top:24px;">Start Speaking</a>
+      </div>
+
+      <!-- Cards grid -->
+      <div class="hist-grid" id="histGrid" role="list" aria-label="Session history"></div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Volley" style="width:20px;height:auto;opacity:0.4;">
+      <span class="footer-wordmark">volley</span>
+    </div>
+    <span class="footer-tagline">Precision under pressure.</span>
+    <span class="footer-copy">© 2025 Volley</span>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/topics.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+</html>

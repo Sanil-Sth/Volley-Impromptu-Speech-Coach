@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Volley — Timer</title>
+  <meta name="description" content="Impromptu speech timer. Speak for 1–2 minutes without a script.">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/timer.css">
+</head>
+<body class="page-timer">
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a class="nav-brand" href="index.html" aria-label="Volley home">
+      <!-- FIX #9: PNG logo -->
+      <img class="nav-logo-img" src="assets/logo.png" alt="Volley logo">
+      <span class="nav-wordmark">volley</span>
+    </a>
+    <span class="nav-tagline">Precision under pressure.</span>
+    <div class="nav-right">
+      <!-- FIX #12: Streak badge -->
+      <div class="nav-streak" id="navStreak" title="Your current practice streak">
+        <span class="nav-streak-icon">🔥</span>
+        <span class="nav-streak-count">0</span>
+        <span>day streak</span>
+      </div>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="spin.html">Practice</a>
+      <a class="nav-link" href="history.html">History</a>
+    </div>
+  </nav>
+
+  <!-- Background glow -->
+  <div class="timer-bg" aria-hidden="true">
+    <div class="timer-bg-glow" id="timerBgGlow"></div>
+  </div>
+
+  <!-- Back link -->
+  <a class="page-back" href="spin.html" aria-label="Back to topic spinner">← Back</a>
+
+  <!-- TIMER SECTION -->
+  <div class="timer-section" role="main">
+
+    <!-- Topic card -->
+    <div class="topic-card" id="topicCard" role="region" aria-label="Current topic">
+      <span class="topic-label">Your topic</span>
+      <p class="topic-text" id="topicText">Go back and spin a topic first.</p>
+    </div>
+
+    <!-- Status chip -->
+    <div class="session-meta" aria-live="polite">
+      <div class="meta-chip">
+        <span class="dot" id="statusDot" aria-hidden="true"></span>
+        <span id="statusLabel">Ready</span>
+      </div>
+    </div>
+
+    <!-- Ring timer -->
+    <div class="ring-wrap" role="timer" aria-label="Countdown timer">
+      <svg class="ring-svg" viewBox="0 0 240 240" aria-hidden="true">
+        <circle class="ring-track" cx="120" cy="120" r="104"/>
+        <circle class="ring-arc" id="ringArc" cx="120" cy="120" r="104" stroke-dashoffset="0"/>
+      </svg>
+      <div class="ring-center">
+        <div class="ring-time" id="ringTime" aria-label="Time remaining">1:00</div>
+        <div class="ring-adj" id="ringAdj" role="group" aria-label="Adjust time">
+          <button class="adj-btn" id="adjMinus" aria-label="Subtract 30 seconds">−0:30</button>
+          <button class="adj-btn" id="adjPlus"  aria-label="Add 30 seconds">+0:30</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="timer-controls" role="group" aria-label="Timer controls">
+      <button class="ctrl ctrl-reset" id="resetBtn" title="Reset (R)" aria-label="Reset timer">↺</button>
+      <button class="ctrl ctrl-play"  id="playBtn"  title="Start / Pause (Space)" aria-label="Start or pause">▶</button>
+    </div>
+
+    <!-- ECG decoration -->
+    <div class="timer-ecg" aria-hidden="true">
+      <svg viewBox="0 0 880 30" fill="none" preserveAspectRatio="none">
+        <g class="ecg-animated">
+          <polyline points="0,15 55,15 65,15 73,4 81,28 89,1 97,19 105,15 155,15 163,9 171,15 220,15 220,15 275,15 285,15 293,4 301,28 309,1 317,19 325,15 375,15 383,9 391,15 440,15"
+            stroke="#C8F135" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="440,15 495,15 505,15 513,4 521,28 529,1 537,19 545,15 595,15 603,9 611,15 660,15 660,15 715,15 725,15 733,4 741,28 749,1 757,19 765,15 815,15 823,9 831,15 880,15"
+            stroke="#C8F135" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Keyboard hint -->
+    <p style="margin-top:10px;font-size:11px;color:var(--grey);letter-spacing:0.05em;text-align:center;" aria-hidden="true">
+      <kbd style="padding:2px 7px;background:var(--surface-3);border:1px solid var(--surface-4);border-radius:4px;font-size:10px;font-family:var(--font-display);font-weight:700;color:var(--ghost-2);">SPACE</kbd>
+      start/pause &nbsp;·&nbsp;
+      <kbd style="padding:2px 7px;background:var(--surface-3);border:1px solid var(--surface-4);border-radius:4px;font-size:10px;font-family:var(--font-display);font-weight:700;color:var(--ghost-2);">R</kbd>
+      reset
+    </p>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       FIX #10: FULL POST-SESSION DONE SCREEN
+       SESSION COMPLETE → Rating → Coach Tip → Actions
+       ═══════════════════════════════════════════ -->
+  <div class="done-overlay" id="doneOverlay" role="dialog" aria-modal="true" aria-label="Session complete">
+    <div class="done-card">
+
+      <!-- SESSION COMPLETE pill -->
+      <div class="done-pill" aria-hidden="true">
+        ✦ Session Complete
+      </div>
+
+      <!-- Headline -->
+      <h2 class="done-headline">How did that feel?</h2>
+
+      <!-- Topic echo -->
+      <p class="done-topic-echo" id="doneTopicEcho" aria-label="Topic you just spoke on"></p>
+
+      <!-- FIX #10: 5-star rating -->
+      <div class="star-row" role="group" aria-label="Rate your performance">
+        <button class="star-btn" data-rating="1" aria-label="1 star">★</button>
+        <button class="star-btn" data-rating="2" aria-label="2 stars">★</button>
+        <button class="star-btn" data-rating="3" aria-label="3 stars">★</button>
+        <button class="star-btn" data-rating="4" aria-label="4 stars">★</button>
+        <button class="star-btn" data-rating="5" aria-label="5 stars">★</button>
+      </div>
+
+      <!-- FIX #10: Coach's tip card -->
+      <div class="coach-tip-card" aria-live="polite">
+        <span class="coach-tip-label">Coach's Tip</span>
+        <p class="coach-tip-text" id="coachTipText">Loading tip…</p>
+      </div>
+
+      <!-- FIX #13: Session number -->
+      <p class="done-session-num" id="sessionNum" aria-label="Session count"></p>
+
+      <!-- Actions -->
+      <div class="done-actions">
+        <button class="btn btn-primary btn-full btn-lg" id="btnSaveAndContinue" aria-label="Save rating and spin a new topic">
+          Save &amp; Continue
+        </button>
+        <button class="btn btn-ghost btn-full btn-md" id="btnGoAgain" aria-label="Go again with same topic">
+          Go Again →
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/topics.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/timer.js"></script>
+</body>
+</html>

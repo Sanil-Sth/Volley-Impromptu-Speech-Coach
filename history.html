@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Volley — Practice History</title>
+  <meta name="description" content="Your full Volley session history — every topic, every rating, every rep.">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/history.css">
+</head>
+<body class="page-history">
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a class="nav-brand" href="index.html" aria-label="Volley home">
+      <img class="nav-logo-img" src="assets/logo.png" alt="Volley logo">
+      <span class="nav-wordmark">volley</span>
+    </a>
+    <span class="nav-tagline">Precision under pressure.</span>
+    <div class="nav-right">
+      <div class="nav-streak" id="navStreak" title="Your current practice streak">
+        <span class="nav-streak-icon">🔥</span>
+        <span class="nav-streak-count">0</span>
+        <span>day streak</span>
+      </div>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="spin.html">Practice</a>
+      <a class="nav-link active" href="history.html">History</a>
+      <a class="nav-cta" href="spin.html">Start Speaking</a>
+    </div>
+  </nav>
+
+  <!-- Background glow -->
+  <div class="hist-page-bg" aria-hidden="true">
+    <div class="hist-page-glow"></div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="hist-page-main">
+
+    <!-- Page header -->
+    <header class="hist-page-header">
+      <div class="hist-page-eyebrow">
+        <span class="hist-eyebrow-dot"></span>
+        Practice history
+      </div>
+      <h1 class="hist-page-title">your sessions.</h1>
+      <p class="hist-page-sub">Every rep tracked. Every topic logged.</p>
+    </header>
+
+    <!-- Stats bar -->
+    <div class="hist-stats" id="histStats" role="region" aria-label="Practice statistics">
+      <div class="hist-stat">
+        <span class="hist-stat-val" id="hsSessions">0</span>
+        <span class="hist-stat-lbl">sessions</span>
+      </div>
+      <div class="hist-stat-div"></div>
+      <div class="hist-stat">
+        <span class="hist-stat-val" id="hsAvg">—</span>
+        <span class="hist-stat-lbl">avg rating</span>
+      </div>
+      <div class="hist-stat-div"></div>
+      <div class="hist-stat">
+        <span class="hist-stat-val" id="hsStreak">0</span>
+        <span class="hist-stat-lbl">day streak</span>
+      </div>
+      <div class="hist-stat-div"></div>
+      <div class="hist-stat">
+        <span class="hist-stat-val" id="hsTime">0m</span>
+        <span class="hist-stat-lbl">total time</span>
+      </div>
+    </div>
+
+    <!-- Controls: filter + clear -->
+    <div class="hist-controls" id="histControls">
+      <div class="hist-filters" role="group" aria-label="Filter by category">
+        <button class="hist-filter active" data-cat="all">All</button>
+        <button class="hist-filter" data-cat="career">💼 Career</button>
+        <button class="hist-filter" data-cat="mindset">🧠 Mindset</button>
+        <button class="hist-filter" data-cat="society">🌍 Society</button>
+        <button class="hist-filter" data-cat="tech">⚡ Tech</button>
+        <button class="hist-filter" data-cat="debate">⚔️ Debate</button>
+        <button class="hist-filter" data-cat="story">✦ Story</button>
+      </div>
+      <button class="btn btn-ghost btn-sm hist-clear-btn" id="histClearBtn" aria-label="Clear all history">
+        Clear history
+      </button>
+    </div>
+
+    <!-- Empty — no history at all -->
+    <div class="hist-empty" id="histEmpty">
+      <span class="hist-empty-icon" aria-hidden="true">🎙</span>
+      <p class="hist-empty-title">no sessions yet.</p>
+      <p class="hist-empty-sub">Complete a practice session and it'll show up here.</p>
+      <a class="btn btn-primary btn-md" href="spin.html" style="margin-top:24px;">Start Speaking</a>
+    </div>
+
+    <!-- Empty — filter has no results -->
+    <div class="hist-empty" id="histFilterEmpty" style="display:none;">
+      <span class="hist-empty-icon" aria-hidden="true">🔍</span>
+      <p class="hist-empty-title">nothing here.</p>
+      <p class="hist-empty-sub">No sessions in this category yet. Try a different filter.</p>
+      <button class="btn btn-ghost btn-md" id="histResetFilter" style="margin-top:20px;">Show all sessions</button>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="hist-grid" id="histGrid" role="list" aria-label="Session history"></div>
+
+    <!-- Bottom CTA -->
+    <div class="hist-page-cta" id="histPageCta">
+      <a class="btn btn-primary btn-lg" href="spin.html">Keep Practicing →</a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Volley" style="width:20px;height:auto;opacity:0.4;">
+      <span class="footer-wordmark">volley</span>
+    </div>
+    <span class="footer-tagline">Precision under pressure.</span>
+    <span class="footer-copy">© 2025 Volley</span>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/topics.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/history.js"></script>
+</body>
+</html>
