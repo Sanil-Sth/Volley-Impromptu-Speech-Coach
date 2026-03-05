@@ -58,7 +58,6 @@ volley/
 ├── history.html
 ├── assets/
 │   ├── logo.png
-│   └── icons/
 ├── css/
 │   ├── tokens.css       ← Design tokens (colors, spacing, type)
 │   ├── global.css       ← Shared layout: navbar, buttons, toast
